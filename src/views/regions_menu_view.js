@@ -10,11 +10,9 @@ RegionsMenuView.prototype.bindEvents = function () {
     const regions = this.populateMenu(regionsData);
   });
 
-  this.navElement.addEventListener('click', (event) => {
-    const clickedRegionName = event.target.classList;
-    // console.log(event.target.value);
-    PubSub.publish('RegionsMenuView:region-clicked', clickedRegionName);
-  });
+    // this.navElement.addEventListener('click', (event) => {
+    // const clickedRegionClassId = event.target.id;
+    // PubSub.publish('RegionsMenuView:region-clicked', clickedRegionClassId);
 };
 
 
@@ -28,12 +26,25 @@ RegionsMenuView.prototype.populateMenu = function (regionsData) {
   regions.forEach( (region) => {
     const anchor = document.createElement('a');
     anchor.textContent = region.shortname;
-    anchor.classList.add(`${region.regionid}`);
+    anchor.setAttribute("id", `${region.regionid}`);
     anchor.href = "";
+
+    anchor.addEventListener('click', (event) => {
+      event.preventDefault();
+      console.log("this has been clicked");
+      const clickedRegionClassId = event.target.id;
+      PubSub.publish('RegionsMenuView:region-clicked', clickedRegionClassId);
+    });
     this.navElement.appendChild(anchor);
   });
-}
+};
 
+// RegionsMenuView.prototype.addEventListener = function (regionsData) {
+//   const regions = this.accessingToRegionsArray(regionsData);
+//   regions.forEach( (region) => {
+//
+//   });
+// };
 
 
 module.exports = RegionsMenuView;

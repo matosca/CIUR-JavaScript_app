@@ -7,7 +7,7 @@ const RegionInfoView = function (container) {
 RegionInfoView.prototype.bindEvents = function () {
   PubSub.subscribe('Regions:region-clicked-ready', (event) => {
     const regionDetails = event.detail;
-    console.log(event.detail);
+    // console.log(event.detail);
     this.render(regionDetails);
   });
 };
@@ -25,7 +25,7 @@ RegionInfoView.prototype.createHeading = function (dataObject) {
   const dataRegions = dataObject.data[0].regions;
   const shortname = dataRegions.shortname;
   const heading = this.createElement('h2', `${shortname}`);
-  console.log(heading);
+  console.log("heading", heading);
   return heading;
 }
 

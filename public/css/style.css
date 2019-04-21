@@ -1,0 +1,43 @@
+/* Global */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* Main body - background-image: linear-gradient(to bottom, #000000, #0d0103, #160205, #1d0406, #230505); */
+body {
+  background-color: #000000;
+  color: #dddfd4;
+  margin: 0 auto;
+  max-width: 80em;
+}
+
+#heading h1{
+  text-align: center;
+  margin: 1em auto;
+  font-family: 'Francois One', sans-serif;
+}
+
+main.main-container {
+  display: grid;
+  grid-template-columns: 10em auto;
+}
+
+#menu-bar {
+  min-height: 90vh;
+  line-height: 1.5;
+  margin-bottom: 1em;
+}
+#menu-bar a {
+  display: block;
+  color: #dddfd4;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.3em;
+  cursor: pointer;
+  padding: 0.175rem;
+  text-decoration: none;
+}
+
+#menu-bar a:hover {
+  color: #fae596;
+}

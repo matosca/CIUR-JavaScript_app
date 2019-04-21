@@ -23,7 +23,7 @@ RegionsMenuView.prototype.populateMenu = function (regionsData) {
       event.preventDefault();
       console.log("this has been clicked");
       const clickedRegionClassId = event.target.id;
-      console.log("clicked region", clickedRegionClassId);
+      // console.log("clicked region", clickedRegionClassId);
       PubSub.publish('RegionsMenuView:region-clicked', clickedRegionClassId);
     });
     this.navElement.appendChild(anchor);

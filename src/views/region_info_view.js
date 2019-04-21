@@ -21,11 +21,10 @@ RegionInfoView.prototype.render = function (region) {
 
 }
 
-RegionInfoView.prototype.createHeading = function (dataObject) {
-  const dataRegions = dataObject.data[0].regions;
-  const shortname = dataRegions.shortname;
-  const heading = this.createElement('h2', `${shortname}`);
-  console.log("heading", heading);
+RegionInfoView.prototype.createHeading = function (regions) {
+  // console.log('name', regions.shortname);
+  const heading = this.createElement('h2', `${regions.shortname}`);
+  // console.log("heading", heading);
   return heading;
 }
 

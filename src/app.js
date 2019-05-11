@@ -5,8 +5,8 @@ const RegionInfoView = require('./views/region_info_view.js');
 document.addEventListener('DOMContentLoaded', () => {
   console.log('JavaScript loaded');
 
-  const navElement = document.querySelector('nav#menu-bar');
-  const regionsMenu = new RegionsMenuView(navElement);
+  const selectElement = document.querySelector('select#regionsDropdown');
+  const regionsMenu = new RegionsMenuView(selectElement);
   regionsMenu.bindEvents();
 
   const detailsContainer = document.querySelector('section#info-box');

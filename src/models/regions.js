@@ -18,7 +18,8 @@ Regions.prototype.getData = function () {
 Regions.prototype.bindEvents = function () {
   PubSub.subscribe('RegionsMenuView:region-clicked', (event) => {
     const chosenRegion = event.detail;
-    // console.log(chosenRegion);//return an integer id
+    // console.log(chosenRegion, "region clicked");
+    //return an integer id
     const clickedRegion = this.findByRegionId(chosenRegion);
     PubSub.publish('Regions:region-clicked-ready', clickedRegion);
   });
@@ -30,9 +31,9 @@ Regions.prototype.findByRegionId = function (searchId) {
     // console.log("is it true?", searchId == currentRegion.regionid);
     // console.log("Region searched", currentRegion);
     // String is not equal to number, data types need standardized
-    return searchId == currentRegion.regionid;
+    return searchId == currentRegion.shortname;
   });
-  // console.log("found region", foundRegion);
+  console.log("found region", foundRegion);
   return foundRegion;
 
 };

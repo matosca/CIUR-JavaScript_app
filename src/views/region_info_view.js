@@ -9,6 +9,9 @@ RegionInfoView.prototype.bindEvents = function () {
     const regionDetails = event.detail;
     // console.log(event.detail);
     this.render(regionDetails);
+    const dataFuels = this.chartifyDataFuels(regionDetails);
+
+    PubSub.publish('RegionInfoView:data-fuels-ready', dataFuels);
   });
 };
 
@@ -67,6 +70,20 @@ RegionInfoView.prototype.populateListOfFuels = function (region) {
 
   return fuelsList;
 };
+
+RegionInfoView.prototype.chartifyDataFuels = function (region) {
+  const data = [];
+  const regionFuels = region.generationmix;
+  for (let key in regionFuels) {
+    const info = [];
+    info.push(regionFuels[key].fuel);
+    info.push(regionFuels[key].perc);
+    data.push(info);
+  }
+  console.log('data of fuels', data);
+  return data;
+}
+
 
 RegionInfoView.prototype.createElement = function (elementType, text) {
   const element = document.createElement(elementType);

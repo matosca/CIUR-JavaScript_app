@@ -1,5 +1,6 @@
 const PubSub = require('../helpers/pub_sub.js');
 
+
 const RegionInfoView = function (container) {
   this.container = container;
 };
@@ -9,9 +10,11 @@ RegionInfoView.prototype.bindEvents = function () {
     const regionDetails = event.detail;
     // console.log(event.detail);
     this.render(regionDetails);
+
     const dataFuels = this.chartifyDataFuels(regionDetails);
 
     PubSub.publish('RegionInfoView:data-fuels-ready', dataFuels);
+
   });
 };
 
@@ -20,11 +23,11 @@ RegionInfoView.prototype.render = function (region) {
 
   const heading = this.createHeading(region);
   const detailsContainer = this.createDetailContainer(region);
-  const fuelsContainer = this.createListOfFuels(region);
+  // const fuelsContainer = this.createListOfFuels(region);
 
   this.container.appendChild(heading);
   this.container.appendChild(detailsContainer);
-  this.container.appendChild(fuelsContainer);
+  // this.container.appendChild(fuelsContainer);
 }
 
 RegionInfoView.prototype.createHeading = function (region) {

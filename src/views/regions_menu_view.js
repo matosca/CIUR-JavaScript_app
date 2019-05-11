@@ -15,7 +15,7 @@ RegionsMenuView.prototype.bindEvents = function () {
     event.preventDefault();
     // console.log("this has been clicked");
     const clickedRegionClassId = event.target.value;
-    console.log("clicked region", clickedRegionClassId);
+    // console.log("clicked region", clickedRegionClassId);
     PubSub.publish('RegionsMenuView:region-clicked', clickedRegionClassId);
   });
 };

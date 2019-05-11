@@ -6,7 +6,7 @@ const PieChart = require('./views/high_charts/pie_chart.js');
 document.addEventListener('DOMContentLoaded', () => {
   console.log('JavaScript loaded');
 
-  const selectElement = document.querySelector('select#regionsDropdown');
+  const selectElement = document.querySelector('select#regions-dropdown');
   const regionsMenu = new RegionsMenuView(selectElement);
   regionsMenu.bindEvents();
 

@@ -6,18 +6,32 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="css/style.css">
   <link href="https://fonts.googleapis.com/css?family=Francois+One|Open+Sans|Quicksand|Roboto" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:900" rel="stylesheet">
   <script src="js/bundle.js"></script>
   <title>Carbon Intensity GB</title>
 </head>
 <body>
   <header id="heading">
-    <h1 class="title-page">Carbon Intensity: GB Regions</h1>
+    <h1 class="title-page">Carbon Intensity in UK Regions</h1>
   </header>
   <main class="main-container">
-    <select class="dropdown" name="regions" id="regionsDropdown"></select>
-    <!-- <nav id="menu-bar"></nav> -->
+    <select class="dropdown" name="regions" id="regions-dropdown">
+      <option disabled selected>Select region</option>
+    </select>
     <section id="info-box"></section>
     <div id="pie-container"></div>
+
+    <!-- <script type="text/javascript">
+      function toggleChartVisibility() {
+        if (document.getElementById("regions-dropdown").option.selected == true) {
+          document.getElementById("pie-container").style.visibility = "visible";
+        }
+        else {
+          document.getElementById("pie-container").style.visibility = "hidden";
+        }
+      }
+    </script> -->
+
   </main>
 </body>
 </html>

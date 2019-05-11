@@ -19,7 +19,7 @@ const PieChart = function() {
 });
   this.chart = Highcharts.chart('pie-container', {
       chart: {
-        plotBackgroundColor: null,
+        backgroundColor: null,
         plotBorderWidth: null,
         plotShadow: false,
         type: 'pie'
@@ -28,7 +28,7 @@ const PieChart = function() {
         text: null
       },
       tooltip: {
-          pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+          pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>',
       },
       plotOptions: {
         pie: {
@@ -36,10 +36,10 @@ const PieChart = function() {
           cursor: 'pointer',
           dataLabels: {
             enable:true,
-            format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+            format: '<b>{point.name}</b>: {point.percentage:.2f} %',
             style: {
-              color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black',
-              fontSize: "1.2em"
+              color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'white',
+              fontSize: "1.5em"
             },
             connectorColor: 'silver'
           }
@@ -49,7 +49,7 @@ const PieChart = function() {
         {
           type:'pie',
           name:'Carbon Intensity',
-          innerSize: "40%",
+          innerSize: "35%",
           data: []
         }
       ]

@@ -33,8 +33,8 @@ RegionInfoView.prototype.createDetailContainer = function (region) {
   const container = document.createElement('div');
   container.classList.add('details-box');
 
-  const dnoregion = this.createElement('h3', `${region.dnoregion}`);
-  container.appendChild(dnoregion);
+  // const dnoregion = this.createElement('h3', `${region.dnoregion}`);
+  // container.appendChild(dnoregion);
 
   const carbonIntensity = this.createElement('h4', `${region.intensity.index} - ${region.intensity.forecast} GW` );
   container.appendChild(carbonIntensity);

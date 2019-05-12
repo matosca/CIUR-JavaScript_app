@@ -60,7 +60,7 @@ const PieChart = function() {
 PieChart.prototype.bindEvents = function() {
   PubSub.subscribe("RegionInfoView:data-fuels-ready", evt => {
     this.setData(evt.detail);
-    console.log('is this the data fuels', evt.detail);
+    // console.log('is this the data fuels', evt.detail);
   });
 };
 

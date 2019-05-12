@@ -33,7 +33,7 @@ Regions.prototype.findByRegionId = function (searchId) {
     // String is not equal to number, data types need standardized
     return searchId == currentRegion.shortname;
   });
-  console.log("found region", foundRegion);
+  // console.log("found region", foundRegion);
   return foundRegion;
 
 };

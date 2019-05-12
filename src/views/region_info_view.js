@@ -83,7 +83,7 @@ RegionInfoView.prototype.chartifyDataFuels = function (region) {
     info.push(regionFuels[key].perc);
     data.push(info);
   }
-  console.log('data of fuels', data);
+  // console.log('data of fuels', data);
   return data;
 }
 

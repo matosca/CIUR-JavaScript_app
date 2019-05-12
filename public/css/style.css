@@ -5,8 +5,10 @@
 }
 
 body {
-  background-image: url('../img/image4.jpg');
-  color: #C2C2C2;
+  background-image: url('../img/iu.png'), url('../img/image4.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  color: #F2FEDC;
   margin: 0 auto;
   max-width: 80em;
 }
@@ -28,6 +30,22 @@ body {
   margin: 2em auto;
 }
 
+#regions-dropdown {
+  border: none;
+  outline: none;
+  background: rgba(74, 74, 74, 0.8);
+  border-radius: none;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.2em;
+  letter-spacing: 0.1em;
+  color: #F2FEDC;
+  border: 0.5px solid #2B2B2B;
+  padding: 0 10px;
+  max-width: 40vw;
+  min-width: 15vw;
+  height: 4.5vh;
+}
+
 #info-box {
   margin-left: 2em;
   padding-left: 1em;
@@ -41,10 +59,11 @@ div.fuels-box ul li {
 
 /* High Chart */
 #pie-container {
-  width: 50vw;
-  height: 50vh;
+  width: 60vw;
+  height: 60vh;
   display:flex;
   justify-content: center;
   align-items: center;
   float: right;
+  transform: translate(-13em);
 }

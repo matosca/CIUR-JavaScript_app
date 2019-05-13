@@ -52,6 +52,25 @@ body {
   line-height: 2;
 }
 
+#info-box h2 {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.5em;
+  text-align: center;
+}
+
+#info-box p {
+  font-family: 'Roboto', sans-serif;
+  font-size: 2em;
+  text-align: center;
+}
+
+.details-box h4 {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.2em;
+  text-align: center;
+  text-transform: capitalize;
+}
+
 div.fuels-box ul li {
   list-style-type: none;
   padding: 0.175rem;

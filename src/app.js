@@ -2,6 +2,7 @@ const Regions = require('./models/regions.js');
 const RegionsMenuView = require('./views/regions_menu_view.js');
 const RegionInfoView = require('./views/region_info_view.js');
 const MainView = require('./views/main_view.js');
+const IntensityView = require('./views/intensity_view.js');
 const PieChart = require('./views/high_charts/pie_chart.js');
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -21,6 +22,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const pieChart = new PieChart();
   pieChart.bindEvents();
+
+  const intensityContainer = document.querySelector('div#intensity-box');
+  const intensityView = new IntensityView(intensityContainer);
+  intensityView.bindEvents();
 
   const regions = new Regions();
   regions.getData();

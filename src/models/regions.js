@@ -20,7 +20,9 @@ Regions.prototype.getData = function () {
     .then( (carbonIntensity) => {
       this.carbonIntensity = carbonIntensity.data[0].intensity;
       console.log("the intensity", this.carbonIntensity);
-    })
+      PubSub.publish('Regions:carbon-intensity-ready', this.carbonIntensity);
+    });
+    
 };
 
 Regions.prototype.bindEvents = function () {

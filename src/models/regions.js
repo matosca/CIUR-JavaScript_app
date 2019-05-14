@@ -3,6 +3,7 @@ const PubSub = require('../helpers/pub_sub.js');
 
 const Regions = function () {
   this.regionsData = null;
+  this.carbonIntensity = null;
 };
 
 Regions.prototype.getData = function () {
@@ -10,9 +11,16 @@ Regions.prototype.getData = function () {
   requestHelper.get()
     .then( (dataRegions) => {
     this.regionsData = dataRegions.data[0].regions;
-    // console.log("get data", this.regionsData);
+    console.log("get data", this.regionsData);
     PubSub.publish('Regions:regions-data-loaded', this.regionsData);
   });
+
+  const newRequestHelper = new RequestHelper('https://api.carbonintensity.org.uk/intensity');
+  newRequestHelper.get()
+    .then( (carbonIntensity) => {
+      this.carbonIntensity = carbonIntensity.data[0].intensity;
+      console.log("the intensity", this.carbonIntensity);
+    })
 };
 
 Regions.prototype.bindEvents = function () {

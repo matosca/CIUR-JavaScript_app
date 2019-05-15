@@ -8,7 +8,7 @@ const RegionInfoView = function (container) {
 RegionInfoView.prototype.bindEvents = function () {
   PubSub.subscribe('Regions:region-clicked-ready', (event) => {
     const regionDetails = event.detail;
-    // console.log(event.detail);
+    console.log('this is region clicked',event.detail);
     this.render(regionDetails);
 
     const dataFuels = this.chartifyDataFuels(regionDetails);
@@ -39,14 +39,42 @@ RegionInfoView.prototype.createDetailContainer = function (region) {
   const container = document.createElement('div');
   container.classList.add('details-box');
 
-  // const dnoregion = this.createElement('h3', `${region.dnoregion}`);
-  // container.appendChild(dnoregion);
-
-  const carbonIntensity = this.createElement('h4', `${region.intensity.index} - ${region.intensity.forecast} GW` );
+  const carbonIntensity = this.createElement('h4', `${region.intensity.forecast} gCO2/kWh` );
   container.appendChild(carbonIntensity);
+
+  const carbonIndex = this.createElement('h4', `${region.intensity.index}`);
+  carbonIndex.setAttribute("id", "carbon-index");
+  console.log(region, "region");
+  this.styleAccordingToIndex(region);
+
+
+
+  container.appendChild(carbonIndex);
 
   return container;
 };
+
+RegionInfoView.prototype.styleAccordingToIndex = function(region){
+  const carbonIndex = region.intensity.index;
+  // console.log('carbon index', carbonIndex);
+
+  switch (carbonIndex) {
+    case "very low":
+      carbonIndex.style.color = "green";
+      break;
+    case "low":
+      carbonIndex.style.color = "green";
+      break;
+    case "moderate":
+      carbonIndex.style.color = "orange";
+      break;
+    case "high":
+      carbonIndex.style.color = "red";
+      break;
+  }
+
+  return carbonIndex;
+}
 
 RegionInfoView.prototype.createListOfFuels = function (region) {
   const container = document.createElement('div');

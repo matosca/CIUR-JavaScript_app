@@ -8,13 +8,9 @@ const RegionInfoView = function (container) {
 RegionInfoView.prototype.bindEvents = function () {
   PubSub.subscribe('Regions:region-clicked-ready', (event) => {
     const regionDetails = event.detail;
-    console.log('this is region clicked',event.detail);
     this.render(regionDetails);
-
     const dataFuels = this.chartifyDataFuels(regionDetails);
-
     PubSub.publish('RegionInfoView:data-fuels-ready', dataFuels);
-
   });
 };
 
@@ -23,18 +19,16 @@ RegionInfoView.prototype.render = function (region) {
 
   const heading = this.createHeading(region);
   const detailsContainer = this.createDetailContainer(region);
-  // const fuelsContainer = this.createListOfFuels(region);
 
   this.container.appendChild(heading);
   this.container.appendChild(detailsContainer);
-  // this.container.appendChild(fuelsContainer);
 }
 
 RegionInfoView.prototype.createHeading = function (region) {
   const heading = this.createElement('h2', `${region.shortname}`);
-  // console.log("heading", heading);
   return heading;
 };
+
 RegionInfoView.prototype.createDetailContainer = function (region) {
   const container = document.createElement('div');
   container.classList.add('details-box');
@@ -44,9 +38,7 @@ RegionInfoView.prototype.createDetailContainer = function (region) {
 
   const carbonIndexElement = this.createElement('h4', `${region.intensity.index}`);
   carbonIndexElement.setAttribute("id", "carbon-index");
-  console.log(region, "region");
   this.styleAccordingToIndex(region, carbonIndexElement);
-
   container.appendChild(carbonIndexElement);
 
   return container;
@@ -71,32 +63,6 @@ RegionInfoView.prototype.styleAccordingToIndex = function(region, element){
   }
 
   return carbonIndex;
-}
-
-RegionInfoView.prototype.createListOfFuels = function (region) {
-  const container = document.createElement('div');
-  container.classList.add('fuels-box');
-
-  const list = this.populateListOfFuels(region);
-
-  container.appendChild(list);
-
-  return container;
-};
-
-RegionInfoView.prototype.populateListOfFuels = function (region) {
-  const fuelsList = document.createElement('ul');
-  const regionFuels = region.generationmix;
-
-  regionFuels.forEach( (region, index) => {
-    const listItem = document.createElement('li');
-    listItem.textContent = `${region.fuel} (${region.perc}%)`;
-    listItem.id = index;
-
-    fuelsList.appendChild(listItem);
-  })
-
-  return fuelsList;
 };
 
 RegionInfoView.prototype.chartifyDataFuels = function (region) {
@@ -108,7 +74,6 @@ RegionInfoView.prototype.chartifyDataFuels = function (region) {
     info.push(regionFuels[key].perc);
     data.push(info);
   }
-  // console.log('data of fuels', data);
   return data;
 }
 
@@ -118,6 +83,31 @@ RegionInfoView.prototype.createElement = function (elementType, text) {
   element.textContent = text;
   return element;
 };
+
+// RegionInfoView.prototype.createListOfFuels = function (region) {
+//   const container = document.createElement('div');
+//   container.classList.add('fuels-box');
+//
+//   const list = this.populateListOfFuels(region);
+//   container.appendChild(list);
+//
+//   return container;
+// };
+//
+// RegionInfoView.prototype.populateListOfFuels = function (region) {
+//   const fuelsList = document.createElement('ul');
+//   const regionFuels = region.generationmix;
+//
+//   regionFuels.forEach( (region, index) => {
+//     const listItem = document.createElement('li');
+//     listItem.textContent = `${region.fuel} (${region.perc}%)`;
+//     listItem.id = index;
+//
+//     fuelsList.appendChild(listItem);
+//   })
+//
+//   return fuelsList;
+// };
 
 
 module.exports = RegionInfoView;

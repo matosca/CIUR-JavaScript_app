@@ -33,7 +33,7 @@ body {
 #regions-dropdown {
   border: none;
   outline: none;
-  background: rgba(74, 74, 74, 0.8);
+  background-color: rgba(0, 0, 0, 0.5);
   border-radius: none;
   font-family: 'Roboto', sans-serif;
   font-size: 1.2em;
@@ -47,8 +47,8 @@ body {
 }
 
 #info-box {
-  margin-left: 2em;
-  padding-left: 1em;
+  /* margin-left: 2em; */
+  /* padding-left: 1em; */
   line-height: 2;
 }
 
@@ -77,9 +77,11 @@ div.fuels-box ul li {
 }
 
 #intensity-box {
+  align-items: center;
   border: solid 1px yellow;
   background-color: rgba(0, 0, 0, 0.5);
-
+  margin: 0 auto;
+  max-width: 20em;
 }
 
 /* High Chart */

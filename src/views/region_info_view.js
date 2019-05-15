@@ -17,21 +17,17 @@ RegionInfoView.prototype.bindEvents = function () {
 RegionInfoView.prototype.render = function (region) {
   this.container.innerHTML = '';
 
-  const heading = this.createHeading(region);
   const detailsContainer = this.createDetailContainer(region);
 
-  this.container.appendChild(heading);
   this.container.appendChild(detailsContainer);
 }
-
-RegionInfoView.prototype.createHeading = function (region) {
-  const heading = this.createElement('h2', `${region.shortname}`);
-  return heading;
-};
 
 RegionInfoView.prototype.createDetailContainer = function (region) {
   const container = document.createElement('div');
   container.classList.add('details-box');
+
+  const heading = this.createElement('h2', `${region.shortname}`);
+  container.appendChild(heading);
 
   const carbonIntensity = this.createElement('h4', `${region.intensity.forecast} gCO2/kWh` );
   container.appendChild(carbonIntensity);
@@ -70,9 +66,13 @@ RegionInfoView.prototype.chartifyDataFuels = function (region) {
   const regionFuels = region.generationmix;
   for (let key in regionFuels) {
     const info = [];
-    info.push(regionFuels[key].fuel);
-    info.push(regionFuels[key].perc);
-    data.push(info);
+    
+    if (regionFuels[key].perc !== 0) {
+      info.push(regionFuels[key].fuel);
+      info.push(regionFuels[key].perc);
+      // console.log('generationmix percentages',regionFuels[key].perc);
+      data.push(info);
+    }
   }
   return data;
 }

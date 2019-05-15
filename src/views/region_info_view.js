@@ -42,34 +42,31 @@ RegionInfoView.prototype.createDetailContainer = function (region) {
   const carbonIntensity = this.createElement('h4', `${region.intensity.forecast} gCO2/kWh` );
   container.appendChild(carbonIntensity);
 
-  const carbonIndex = this.createElement('h4', `${region.intensity.index}`);
-  carbonIndex.setAttribute("id", "carbon-index");
+  const carbonIndexElement = this.createElement('h4', `${region.intensity.index}`);
+  carbonIndexElement.setAttribute("id", "carbon-index");
   console.log(region, "region");
-  this.styleAccordingToIndex(region);
+  this.styleAccordingToIndex(region, carbonIndexElement);
 
-
-
-  container.appendChild(carbonIndex);
+  container.appendChild(carbonIndexElement);
 
   return container;
 };
 
-RegionInfoView.prototype.styleAccordingToIndex = function(region){
+RegionInfoView.prototype.styleAccordingToIndex = function(region, element){
   const carbonIndex = region.intensity.index;
-  // console.log('carbon index', carbonIndex);
 
   switch (carbonIndex) {
     case "very low":
-      carbonIndex.style.color = "green";
+      element.style.color = "green";
       break;
     case "low":
-      carbonIndex.style.color = "green";
+      element.style.color = "green";
       break;
     case "moderate":
-      carbonIndex.style.color = "orange";
+      element.style.color = "orange";
       break;
     case "high":
-      carbonIndex.style.color = "red";
+      element.style.color = "red";
       break;
   }
 

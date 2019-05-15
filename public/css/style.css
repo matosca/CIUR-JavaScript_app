@@ -76,6 +76,12 @@ div.fuels-box ul li {
   padding: 0.175rem;
 }
 
+#intensity-box {
+  border: solid 1px yellow;
+  background-color: rgba(0, 0, 0, 0.5);
+
+}
+
 /* High Chart */
 #pie-container {
   width: 60vw;

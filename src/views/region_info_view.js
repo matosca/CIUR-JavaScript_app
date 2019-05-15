@@ -1,4 +1,5 @@
 const PubSub = require('../helpers/pub_sub.js');
+const IntensityView = require('./intensity_view.js');
 
 
 const RegionInfoView = function (container) {
@@ -9,6 +10,7 @@ RegionInfoView.prototype.bindEvents = function () {
   PubSub.subscribe('Regions:region-clicked-ready', (event) => {
     const regionDetails = event.detail;
     this.render(regionDetails);
+
     const dataFuels = this.chartifyDataFuels(regionDetails);
     PubSub.publish('RegionInfoView:data-fuels-ready', dataFuels);
   });
@@ -18,7 +20,6 @@ RegionInfoView.prototype.render = function (region) {
   this.container.innerHTML = '';
 
   const detailsContainer = this.createDetailContainer(region);
-
   this.container.appendChild(detailsContainer);
 }
 
@@ -66,16 +67,15 @@ RegionInfoView.prototype.chartifyDataFuels = function (region) {
   const regionFuels = region.generationmix;
   for (let key in regionFuels) {
     const info = [];
-    
+
     if (regionFuels[key].perc !== 0) {
       info.push(regionFuels[key].fuel);
       info.push(regionFuels[key].perc);
-      // console.log('generationmix percentages',regionFuels[key].perc);
       data.push(info);
     }
   }
   return data;
-}
+};
 
 
 RegionInfoView.prototype.createElement = function (elementType, text) {
@@ -83,31 +83,6 @@ RegionInfoView.prototype.createElement = function (elementType, text) {
   element.textContent = text;
   return element;
 };
-
-// RegionInfoView.prototype.createListOfFuels = function (region) {
-//   const container = document.createElement('div');
-//   container.classList.add('fuels-box');
-//
-//   const list = this.populateListOfFuels(region);
-//   container.appendChild(list);
-//
-//   return container;
-// };
-//
-// RegionInfoView.prototype.populateListOfFuels = function (region) {
-//   const fuelsList = document.createElement('ul');
-//   const regionFuels = region.generationmix;
-//
-//   regionFuels.forEach( (region, index) => {
-//     const listItem = document.createElement('li');
-//     listItem.textContent = `${region.fuel} (${region.perc}%)`;
-//     listItem.id = index;
-//
-//     fuelsList.appendChild(listItem);
-//   })
-//
-//   return fuelsList;
-// };
 
 
 module.exports = RegionInfoView;

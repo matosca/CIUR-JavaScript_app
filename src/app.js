@@ -23,9 +23,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const pieChart = new PieChart();
   pieChart.bindEvents();
 
-  const intensityContainer = document.querySelector('div#intensity-box');
-  const intensityView = new IntensityView(intensityContainer);
+  const intensityBox = document.querySelector('div#intensity-box');
+  const intensityView = new IntensityView(intensityBox);
   intensityView.bindEvents();
+
 
   const regions = new Regions();
   regions.getData();

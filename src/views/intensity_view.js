@@ -8,6 +8,7 @@ IntensityView.prototype.bindEvents = function(){
   PubSub.subscribe('Regions:carbon-intensity-ready', (evt) => {
     const carbonIntensity = evt.detail;
     this.render(carbonIntensity);
+    this.renderTopContainer(carbonIntensity);
   });
 };
 
@@ -18,6 +19,14 @@ this.container.appendChild(textIntensity);
 const intensityElement = this.createElement('h2', `${carbonIntensity.actual} gCO2/kWh`);
 this.container.appendChild(intensityElement);
 };
+
+IntensityView.prototype.renderTopContainer = function(carbonIntensity) {
+
+  const intensityContainer = document.querySelector('div#container-intensity');
+
+  const intensityElement = this.createElement('h2', `${carbonIntensity.actual} gCO2/kWh`);
+  intensityContainer.appendChild(intensityElement);
+}
 
 IntensityView.prototype.createElement = function(elementType, text){
   const element = document.createElement(elementType);

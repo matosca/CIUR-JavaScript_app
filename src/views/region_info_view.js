@@ -30,11 +30,13 @@ RegionInfoView.prototype.createDetailContainer = function (region) {
   const heading = this.createElement('h2', `${region.shortname}`);
   container.appendChild(heading);
 
-  const carbonIntensity = this.createElement('h3', `${region.intensity.forecast} gCO2/kWh` );
+  const carbonIntensity = this.createElement('h3', `${region.intensity.forecast} ` );
+  carbonIntensity.insertAdjacentHTML('beforeend', '<br><div><small>gCO<sub>2</sub>/kWh</small></div>');
+  this.styleAccordingToIndex(region, carbonIntensity);
   container.appendChild(carbonIntensity);
 
   const carbonIndexElement = this.createElement('h4', `${region.intensity.index}`);
-  carbonIndexElement.setAttribute("id", "carbon-index");
+  // carbonIndexElement.setAttribute("id", "carbon-index");
   this.styleAccordingToIndex(region, carbonIndexElement);
   container.appendChild(carbonIndexElement);
 
@@ -46,17 +48,19 @@ RegionInfoView.prototype.styleAccordingToIndex = function(region, element){
 
   switch (carbonIndex) {
     case "very low":
-      element.style.color = "green";
+      element.style.color = "#1E773C";
       break;
     case "low":
-      element.style.color = "green";
+      element.style.color = "#6DC68F";
       break;
     case "moderate":
-      element.style.color = "orange";
+      element.style.color = "#ECBA10";
       break;
     case "high":
-      element.style.color = "red";
+      element.style.color = "#DD691B";
       break;
+    case "very high":
+      element.style.color = "#97201C"
   }
 
   return carbonIndex;

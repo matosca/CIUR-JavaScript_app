@@ -21,6 +21,7 @@ Regions.prototype.getData = function () {
   newRequestHelper.get()
     .then( (carbonIntensity) => {
       this.carbonIntensity = carbonIntensity.data[0].intensity;
+      console.log('carbon intensity',this.carbonIntensity);
       PubSub.publish('Regions:carbon-intensity-ready', this.carbonIntensity);
     });
 };

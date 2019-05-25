@@ -65,14 +65,18 @@ body {
   height: 4.5vh;
 }
 
-#info-box {
-  line-height: 2;
-}
+/* #info-box {
+  position: relative;
+  float: left;
+  /* display: flex;
+  align-items: flex-end; */
+/* } */
 
 #info-box h2 {
   font-family: 'Roboto', sans-serif;
   font-size: 1.5em;
   text-align: center;
+  padding-bottom: 1rem;
 }
 
 #info-box p {
@@ -90,13 +94,14 @@ body {
 
 .details-box h3 {
   font-family: 'Roboto', sans-serif;
-  font-size: 1.2em;
+  font-size: 1.5em;
   text-align: center;
 }
 
-div.fuels-box ul li {
-  list-style-type: none;
-  padding: 0.175rem;
+.details-box h3 div {
+  color: #F2FEDC;
+  font-size: 12px;
+  padding-bottom: 0.5rem;
 }
 
 #intensity-box {

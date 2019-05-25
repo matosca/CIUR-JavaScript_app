@@ -17,7 +17,7 @@ IntensityView.prototype.render = function(carbonIntensity){
 const textIntensity = this.createElement('h2', 'Current Carbon Intensity');
 this.container.appendChild(textIntensity);
 const intensityElement = this.createElement('h2', `${carbonIntensity.actual}`);
-intensityElement.insertAdjacentHTML('beforeend', '<br><div>gCO<sub>2</sub>/kWh</div>');
+intensityElement.insertAdjacentHTML('beforeend', '<br><div><small>gCO<sub>2</sub>/kWh</small></div>');
 this.container.appendChild(intensityElement);
 };
 
@@ -30,8 +30,8 @@ IntensityView.prototype.renderTopContainer = function(carbonIntensity) {
 
   const breakElement = document.createElement('br');
 
-  const textIntensity = this.createElement('div', 'gCO');
-  textIntensity.insertAdjacentHTML('beforeend', '<sub>2</sub>/kWh');
+  const textIntensity = document.createElement('div');
+  textIntensity.insertAdjacentHTML('beforeend', '<small>gCO<sub>2</sub>/kWh</small>');
 
   intensityElement.appendChild(breakElement);
   intensityElement.appendChild(textIntensity);

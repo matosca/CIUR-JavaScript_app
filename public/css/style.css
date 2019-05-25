@@ -6,11 +6,16 @@
 
 body {
   background-image: url('../img/iu.png'), url('../img/image4.jpg');
+  /* background-image: url('../img/image4.jpg'); */
   background-repeat: no-repeat;
   background-position: center;
   color: #F2FEDC;
   margin: 0 auto;
   max-width: 80em;
+}
+
+#heading {
+  border-bottom: solid 1px yellow;
 }
 
 #heading h1{
@@ -19,23 +24,30 @@ body {
   letter-spacing: 0.2em;
   font-size: 3em;
   font-family: 'Montserrat', sans-serif;
-  float: left;
+  padding: 1rem;
+  position: fixed;
+  top: 0;
 }
 
-#heading h2 {
+.intensity {
+  position: fixed;
+  top: 0;
+  right: 10rem;
   text-align: center;
   letter-spacing: 0.1em;
+  font-size: 1em;
   font-family: 'Roboto', sans-serif;
-  font-size: 1.2em;
   float: right;
+  padding: 1.5rem;
 }
 
 #regions-dropdown {
-  display: flex;
+  position: relative;
+  display: block;
   justify-content: center;
-  align-items: center;
-  margin: 2em auto;
-}
+  margin: 4.5rem auto;
+  margin-left: 30rem;
+ }
 
 #regions-dropdown {
   border: none;
@@ -54,8 +66,6 @@ body {
 }
 
 #info-box {
-  /* margin-left: 2em; */
-  /* padding-left: 1em; */
   line-height: 2;
 }
 

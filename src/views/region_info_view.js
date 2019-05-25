@@ -30,7 +30,7 @@ RegionInfoView.prototype.createDetailContainer = function (region) {
   const heading = this.createElement('h2', `${region.shortname}`);
   container.appendChild(heading);
 
-  const carbonIntensity = this.createElement('h4', `${region.intensity.forecast} gCO2/kWh` );
+  const carbonIntensity = this.createElement('h3', `${region.intensity.forecast} gCO2/kWh` );
   container.appendChild(carbonIntensity);
 
   const carbonIndexElement = this.createElement('h4', `${region.intensity.index}`);

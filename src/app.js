@@ -27,7 +27,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const intensityView = new IntensityView(intensityBox);
   intensityView.bindEvents();
 
-
   const regions = new Regions();
   regions.getData();
   regions.bindEvents();

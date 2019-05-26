@@ -1,25 +1,15 @@
 const PubSub = require('../helpers/pub_sub.js');
 
-const IntensityView = function (container) {
-  this.container = container;
+const IntensityView = function () {
+  
 };
 
 IntensityView.prototype.bindEvents = function(){
   PubSub.subscribe('Regions:carbon-intensity-ready', (evt) => {
     const carbonIntensity = evt.detail;
-    this.render(carbonIntensity);
     this.renderTopContainer(carbonIntensity);
+    this.renderMapImage()
   });
-};
-
-IntensityView.prototype.render = function(carbonIntensity){
-
-const textIntensity = this.createElement('h2', 'Current Carbon Intensity');
-this.container.appendChild(textIntensity);
-const intensityElement = this.createElement('h2', `${carbonIntensity.actual}`);
-intensityElement.insertAdjacentHTML('beforeend', '<br><div><small>gCO<sub>2</sub>/kWh</small></div>');
-this.styleAccordingToIndex(carbonIntensity, intensityElement);
-this.container.appendChild(intensityElement);
 };
 
 IntensityView.prototype.renderTopContainer = function(carbonIntensity) {
@@ -40,6 +30,20 @@ IntensityView.prototype.renderTopContainer = function(carbonIntensity) {
 
   intensityContainer.appendChild(intensityElement);
 };
+
+IntensityView.prototype.renderMapImage = function () {
+  const container = document.querySelector('#heading');
+
+  const imgContainer = document.createElement('div');
+  imgContainer.classList.add('map-box');
+
+  const imageElement = document.createElement('img');
+  imageElement.src = '../public/img/iu.png';
+  imageElement.alt = 'Great Britain blank grey map';
+
+  imgContainer.appendChild(imageElement);
+  container.appendChild(imgContainer);
+}
 
 IntensityView.prototype.styleAccordingToIndex = function(carbonIntensity, element){
   const carbonIndex = carbonIntensity.index;

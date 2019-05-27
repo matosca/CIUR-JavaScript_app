@@ -1,7 +1,7 @@
 const PubSub = require('../helpers/pub_sub.js');
 
 const IntensityView = function () {
-  
+
 };
 
 IntensityView.prototype.bindEvents = function(){
@@ -19,6 +19,7 @@ IntensityView.prototype.renderTopContainer = function(carbonIntensity) {
   const intensityElement = this.createElement('div', `${carbonIntensity.actual}`);
   intensityElement.classList.add('intensity');
   this.styleAccordingToIndex(carbonIntensity, intensityElement);
+  // intensityElement.insertAdjacentHTML('afterbegin', 'Current Carbon Intensity');
 
   const breakElement = document.createElement('br');
 

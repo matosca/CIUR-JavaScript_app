@@ -20,10 +20,12 @@ RegionsMenuView.prototype.bindEvents = function () {
 
 RegionsMenuView.prototype.populateMenu = function (regionsData) {
   regionsData.forEach( (region) => {
-    const option = document.createElement('option');
-    option.textContent = region.shortname;
-    option.value = region.shortname;
-    this.selectElement.appendChild(option);
+    if (region.shortname !== "GB") {
+      const option = document.createElement('option');
+      option.textContent = region.shortname;
+      option.value = region.shortname;
+      this.selectElement.appendChild(option);
+    }
   });
 };
 

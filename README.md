@@ -61,25 +61,13 @@ In order to make the app running, there are required to add a script to package.
 This are the commands needed to start running the application in your local machine. In your command line, copy and paste the following:
 
 ```
-mongod
-```
-
-In a new tab, copy and paste this:
-
-```
-mongo < server/db/seeds.js
-```
-
-This command will seed the mongo database. Then, in a new tab, type the following:
-
-```
 npm run build
 ```
 
-Finally, in a new tab, copy and paste this:
+And, in a new tab, copy and paste this:
 
 ```
-npm run server:dev
+npm start
 ```
 
 You can view the app running at port <http://localhost:3000>

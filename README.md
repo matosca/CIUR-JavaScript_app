@@ -1,4 +1,4 @@
-# Carbon Intensity
+# Carbon Intensity in UK Regions (CIUR)
 
 ![CIUR - Data Display](images/ciur_display_view.png)
 
@@ -6,7 +6,9 @@ This is a front-end JavaScript web app that uses the official Carbon Intensity A
 
 ##### Built With
 
-CIUR (Carbon Intensity in UK Regions) has been built with JavaScript as the main programming language using PubSub pattern.
+CIUR (Carbon Intensity in UK Regions) has been built with JavaScript as the main programming language using PubSub pattern. This app has now being deployed with Heroku, you can check it out in the following link:
+
+<https://ciur.herokuapp.com>
 
 ## MVP
 

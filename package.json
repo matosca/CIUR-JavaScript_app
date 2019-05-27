@@ -1,6 +1,10 @@
 {
   "name": "tracker_co2_gb_api",
   "version": "1.0.0",
+  "engines": {
+    "node": "11.6.0",
+    "npm": "6.9.0"
+  },
   "description": "",
   "main": "index.js",
   "scripts": {

@@ -39,7 +39,7 @@ IntensityView.prototype.renderMapImage = function () {
   imgContainer.classList.add('map-box');
 
   const imageElement = document.createElement('img');
-  imageElement.src = './iu.png';
+  imageElement.src = './img/iu.png';
   imageElement.alt = 'Great Britain blank grey map';
 
   imgContainer.appendChild(imageElement);

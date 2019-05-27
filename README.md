@@ -1,5 +1,7 @@
 # Carbon Intensity
 
+![CIUR - Data Display](images/ciur_main_view.png)
+
 This is a front-end JavaScript web app that uses the official Carbon Intensity API for Great Britain developed by National Grid to create request of the data.
 
 ## Getting Started

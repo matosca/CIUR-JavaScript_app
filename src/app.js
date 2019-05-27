@@ -26,6 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const intensityView = new IntensityView();
   intensityView.bindEvents();
 
+  const regions = new Regions("https://api.carbonintensity.org.uk/regional");
   const regions = new Regions();
   regions.getData();
   regions.bindEvents();

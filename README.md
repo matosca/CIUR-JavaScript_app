@@ -80,4 +80,4 @@ Finally, in a new tab, copy and paste this:
 npm run server:dev
 ```
 
-You can view the app running at port <http://localhost:3000>.
+You can view the app running at port <http://localhost:3000>
